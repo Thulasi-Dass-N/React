@@ -16,6 +16,13 @@ function App() {
     email: "",
     address: "",
   });
+  const [count, setCount] = useState(1);
+
+  // Function to increment count by 1
+  const incrementCount = () => {
+  
+    setCount(count + 1);
+  };
   
 
   const onValChange = (event: { target: { name: any; value: any } }) => {
@@ -31,11 +38,12 @@ function App() {
     console.log("event", event);
 
     event.preventDefault();
+    incrementCount();
 
-    const idNumber = parseInt(Math.random() * 1000);
+    // const idNumber = parseInt(Math.random() * 1000);
     console.log("form", formObject);
     const newdata = {
-      id: idNumber,
+      id: count,
       name: formObject?.name,
       email: formObject?.email,
       address: formObject?.address,
@@ -59,7 +67,7 @@ function App() {
   const editTableRows = (name: any, mail: any, pro: any, Id: any) => {
     console.log(name, mail, pro, Id, "id");
 
-    const isEmpty = { name: name, email: mail, profile: pro, id: Id };
+    const isEmpty = { name: name, email: mail, address: pro, id: Id };
     setEditing({ ...isEmpty });
   };
 
@@ -127,7 +135,7 @@ function App() {
                 placeholder="Profile"
                 onChange={onValChange}
                 value={formObject.address}
-                name="profile"
+                name="address"
               />
             </div>
             <div className="d-grid">

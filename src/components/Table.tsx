@@ -25,7 +25,7 @@ const Table = ({
         {tableData.map((data: any, index: any) => {
           const name = data?.name;
           const mail = data?.email;
-          const pro = data?.profile;
+          const pro = data?.address;
           const Id = data?.id;
           return (
             <tr key={index}>
